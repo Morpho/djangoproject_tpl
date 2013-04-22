@@ -84,7 +84,8 @@ CACHES = {
         'BACKEND': 'redis_cache.cache.RedisCache',
         'LOCATION': '127.0.0.1:6379:%s' % REDIS_PORT,
         'OPTIONS': {
-            "CLIENT_CLASS": 'redis_cache.client.DefaultClient',
+            'CLIENT_CLASS': 'redis_cache.client.DefaultClient',
+            'PARSER_CLASS': 'redis.connection.HiredisParser',
         }
     }
 }
