@@ -1,0 +1,4 @@
+django-redis
+django-extensions
+django-celery
+redis
