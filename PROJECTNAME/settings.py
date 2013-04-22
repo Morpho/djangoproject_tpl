@@ -5,15 +5,6 @@ import re
 import djcelery
 djcelery.setup_loader()
 
-BROKER_URL = "redis://localhost:6379/%s" % REDIS_PORT
-CELERY_IMPORTS = ("APPNAME.tasks", )
-CELERY_SEND_TASK_ERROR_EMAILS = True
-CELERY_SEND_EVENTS = True
-CELERY_IGNORE_RESULT = False
-CELERY_TRACK_STARTED = True
-CELERYBEAT_SCHEDULER = "djcelery.schedulers.DatabaseScheduler"
-BROKER_POOL_LIMIT = None
-
 PROJECT_SLUG = 'projectname'
 PROJECT_ROOT = os.path.dirname(os.path.realpath(__file__))
 
@@ -74,6 +65,17 @@ DATABASES = {
 }
 
 DATABASE_ROUTERS = ['ROUTERAPP.routers.MasterMasterRouter',]
+
+REDIS_PORT = "0"
+
+BROKER_URL = "redis://localhost:6379/%s" % REDIS_PORT
+CELERY_IMPORTS = ("APPNAME.tasks", )
+CELERY_SEND_TASK_ERROR_EMAILS = True
+CELERY_SEND_EVENTS = True
+CELERY_IGNORE_RESULT = False
+CELERY_TRACK_STARTED = True
+CELERYBEAT_SCHEDULER = "djcelery.schedulers.DatabaseScheduler"
+BROKER_POOL_LIMIT = None
 
 ALLOWED_HOSTS = ['PROJECT_HOST',]
 
