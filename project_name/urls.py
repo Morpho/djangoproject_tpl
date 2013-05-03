@@ -8,8 +8,8 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'', include('PROJECTNAME.apps.core.urls'), namespace='core'),
-    url(r'', include('PROJECTNAME.apps.APP_NAME.urls'), namespace='APP_NAME'),
+    url(r'', include('{{ project_name }}.apps.core.urls'), namespace='core'),
+    #url(r'', include('{{ project_name }}.apps.APP_NAME.urls'), namespace='APP_NAME'),
     
     url(r'^admin/', include(admin.site.urls)),
 )

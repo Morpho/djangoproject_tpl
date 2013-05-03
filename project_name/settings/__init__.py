@@ -18,59 +18,12 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': PROJECT_SLUG,
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': '',
-        'OPTIONS': {
-          'init_command': 'SET storage_engine=INNODB', # mysql DB always as INNODB
-        }
-    },
-    'mysql1': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': PROJECT_SLUG,
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': 'mysql1...',
-        'PORT': '',
-        'OPTIONS': {
-          'init_command': 'SET storage_engine=INNODB', # mysql DB always as INNODB
-        }
-    },
-    'mysql2': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': PROJECT_SLUG,
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': 'mysql2...',
-        'PORT': '',
-        'OPTIONS': {
-          'init_command': 'SET storage_engine=INNODB', # mysql DB always as INNODB
-        }
-    },
-    'jobs': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'jobs',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': '',
-        'OPTIONS': {
-          'init_command': 'SET storage_engine=INNODB', # mysql DB always as INNODB
-        }
-    },
-}
-
 # DATABASE_ROUTERS = ['ROUTERAPP.routers.MasterMasterRouter',]
 
 REDIS_PORT = "0"
 
 BROKER_URL = "redis://localhost:6379/%s" % REDIS_PORT
-CELERY_IMPORTS = ("APPNAME.tasks", )
+#CELERY_IMPORTS = ("APPNAME.tasks", )
 CELERY_SEND_TASK_ERROR_EMAILS = True
 CELERY_SEND_EVENTS = True
 CELERY_IGNORE_RESULT = False
@@ -148,8 +101,8 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
-ROOT_URLCONF = os.path.join(PROJECT_ROOT, 'urls')
-WSGI_APPLICATION = os.path.join(PROJECT_ROOT, 'wsgi', 'application')
+ROOT_URLCONF = '{{ project_name }}.urls'
+WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_ROOT, 'layout', 'templates'),
@@ -164,7 +117,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'gunicorn',
-    'djcelery'
+    'djcelery',
     'django_extensions',
     'constance',
     'debug_toolbar',

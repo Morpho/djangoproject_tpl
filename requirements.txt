@@ -5,3 +5,6 @@ django-redis
 django-extensions
 django-celery
 redis
+django-debug-toolbar
+django-constance
+MySQL-python
