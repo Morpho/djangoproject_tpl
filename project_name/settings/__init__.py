@@ -9,6 +9,33 @@ PROJECT_SLUG = '{{ project_name }}'
 PROJECT_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
 PROJECT_ROOT = os.path.abspath(os.path.join(PROJECT_PATH, os.pardir))
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(PROJECT_ROOT, 'test.db'),
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': '',
+    },
+    'mysql1': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(PROJECT_ROOT, 'test.db'),
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': '',
+    },
+    'mysql2': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(PROJECT_ROOT, 'test.db'),
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': '',
+    }
+}
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -31,6 +58,7 @@ CELERY_TRACK_STARTED = True
 CELERYBEAT_SCHEDULER = "djcelery.schedulers.DatabaseScheduler"
 BROKER_POOL_LIMIT = None
 CELERY_DISABLE_RATE_LIMITS = True
+CELERY_ALWAYS_EAGER = True
 
 ALLOWED_HOSTS = ['PROJECT_HOST',]
 
@@ -105,7 +133,7 @@ ROOT_URLCONF = '{{ project_name }}.urls'
 WSGI_APPLICATION = '{{ project_name }}.wsgi.application'
 
 TEMPLATE_DIRS = (
-    os.path.join(PROJECT_ROOT, 'layout', 'templates'),
+    os.path.join(PROJECT_ROOT, PROJECT_SLUG, 'layout', 'templates'),
 )
 
 INSTALLED_APPS = (
