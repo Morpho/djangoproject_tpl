@@ -5,7 +5,7 @@ import re
 import djcelery
 djcelery.setup_loader()
 
-PROJECT_SLUG = 'projectname'
+PROJECT_SLUG = '{{ project_name }}'
 PROJECT_ROOT = os.path.dirname(os.path.realpath(__file__))
 
 DEBUG = True
@@ -117,7 +117,7 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 
-SECRET_KEY = 'GENERATE(PROJECT_SLUG)'
+SECRET_KEY = '{{ secret_key }}'
 
 TEMPLATE_CONTEXT_PROCESSORS = (
 	#'django.core.context_processors.debug',
@@ -171,7 +171,6 @@ INSTALLED_APPS = (
 
 CONSTANCE_CONFIG = {
     'SETTING_DEF': (True, u'Description'),
-
 }
 
 def custom_show_toolbar(request):
