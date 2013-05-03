@@ -88,11 +88,13 @@ LOCALE_PATHS = (
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'layout', 'media')
 MEDIA_URL = '/media/'
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'site-static')
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 
+'''
 STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, "site-static"),
 )
+'''
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
@@ -149,6 +151,7 @@ INSTALLED_APPS = (
     'django_extensions',
     'constance',
     'debug_toolbar',
+    'south',
 )
 
 CONSTANCE_CONFIG = {
