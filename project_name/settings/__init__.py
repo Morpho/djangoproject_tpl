@@ -6,7 +6,8 @@ import djcelery
 djcelery.setup_loader()
 
 PROJECT_SLUG = '{{ project_name }}'
-PROJECT_ROOT = os.path.dirname(os.path.realpath(__file__))
+PROJECT_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
+PROJECT_ROOT = os.path.abspath(os.path.join(PROJECT_PATH, os.pardir))
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -109,7 +110,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'site-static')
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "site-static"),
+    os.path.join(PROJECT_ROOT, "site-static"),
 )
 
 STATICFILES_FINDERS = (
